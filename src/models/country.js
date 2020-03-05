@@ -6,13 +6,34 @@ const Country = mongoose.model('Country',{
         required: true,
         trim: true
     },
-    volume: {
+
+    //in km^2
+    area: {
         type: String
     },
-    fact: {
+    capital: {
         type: String,
         trim: true
+    },
+
+    population: {
+        type: String,
+        trim: true
+    },
+
+    nativeName: {
+
+    },
+
+    //provides url to svg image
+    flag: {
+    },
+
+    //what is the language there?
+    languages: {
+
     }
+
 })
 
 module.exports = Country
