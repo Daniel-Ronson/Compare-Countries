@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator')
 
 const Country = mongoose.model('Country',{
     name: {
@@ -9,7 +10,8 @@ const Country = mongoose.model('Country',{
 
     //in km^2
     area: {
-        type: String
+        type: Number,
+        required: true
     },
     capital: {
         type: String,
@@ -17,23 +19,36 @@ const Country = mongoose.model('Country',{
     },
 
     population: {
-        type: String,
-        trim: true
-    },
-
-    nativeName: {
-
+        type: Number
     },
 
     //provides url to svg image
     flag: {
+        type:String,
+        trim:true
     },
 
-    //what is the language there?
-    languages: {
+   // what is the language there?
+     language: {
+         type:String,
+         trim:true
+     },
+     region: {
+        type:String,
+        trim:true
+     },
 
-    }
+     subregion: {
+        type:String,
+        trim:true
+     },
+
+     countryCode: {
+        type:String,
+        trim:true
+     }
 
 })
+
 
 module.exports = Country
