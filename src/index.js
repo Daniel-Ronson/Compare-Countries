@@ -5,8 +5,13 @@ const Country = require('./models/country')
 const app = express()
 const port = process.env.PORT || 3000
 
-app.use(express.json())
-
+//app.use(express.json())
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    express.json()
+    next();
+  });
 
 
 app.post('/countries',(req,res) =>{
@@ -27,6 +32,26 @@ app.get('/countries', (req,res) => {
         res.status(500).send()
     })
 })
+
+//GET: return all countries
+app.get('/all/countryNames', (req,res) => {
+    Country.find({}).select({"name":1}).then((countries) => {
+        res.send(countries)
+    }).catch((e) => {
+        res.status(500).send()
+    })
+})
+
+//GET: return all countries
+app.get('/order/countryNames', (req,res) => {
+    Country.find().select({"name":1}).collation({locale:'en',strength: 2}).sort({name:1}).then((countries) => {
+        res.send(countries)
+    }).catch((e) => {
+        res.status(500).send()
+    })
+})
+
+
 
 //GET: query by name, return country data
 app.get('/countries/:name',(req,res) => {
