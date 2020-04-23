@@ -7,7 +7,7 @@ Provide backend services for React application found here: https://github.com/Da
 - Interacts with MongoDB
 - script to populate MongoDB database with country data
 
-##Instructions
+## Instructions
 1. Start mongoDB on local machine
 2. navigate to src/db directory in terminal
 ```
@@ -17,4 +17,5 @@ node db_init
 ```
 node index.js
 ```
+Now you can access REST enpoints via HTTP 
 
