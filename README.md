@@ -14,6 +14,7 @@ Provide backend services for React application found here: https://github.com/Da
 npm install
 node db_init
 ```
+Now the MongoDB collection is populated with country data from every country in the world
 3. navigate to src
 ```
 node index.js
