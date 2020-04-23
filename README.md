@@ -11,6 +11,7 @@ Provide backend services for React application found here: https://github.com/Da
 1. Start mongoDB on local machine
 2. navigate to src/db directory in terminal
 ```
+npm install
 node db_init
 ```
 3. navigate to src
